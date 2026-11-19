@@ -1,4 +1,5 @@
 #pragma once
+#include "input_keycodes.hpp"
 #ifndef __cplusplus
 	#error "This header is intended for c++ only."
 #endif // __cplusplus
@@ -11,6 +12,7 @@
 #include "camera.hpp"
 #include "profiler.hpp"
 #include "input_actions.hpp"
+#include "input_binds.hpp"
 
 #include "transformations.hpp"
 #include "mesh_id.hpp"
@@ -20,6 +22,7 @@
 struct Engine{
  public:
     Engine();
+    ~Engine();
     auto loop() -> void;
 
     static constexpr auto initialWindowLogicalExtent = glm::ivec2{
@@ -35,12 +38,22 @@ struct Engine{
     Gui ui;
     Profiler profiler;
     std::vector<Binding> bindings{
-        Binding{ 
-            .type = HoldButtonBind{
-                .button = ButtonCode::KEY_W,
-                .action = {ActionType::MoveCamera},
-            }
-        }
+        Binding{HoldButtonBind{
+            .button = ButtonCode::KEY_W,
+            .action = MoveCameraAction{ glm::vec3{0,-1,0}}
+        }},
+        Binding{PlatformQuitBind{ 
+            .action = EngineQuitAction{},
+        }},
+        Binding{ToggleButtonBind{ 
+            .button = ButtonCode::KEY_ESCAPE,
+            .action = EngineQuitAction{},
+        }},
+        Binding{ToggleButtonBind{ 
+            .button = ButtonCode::KEY_C,
+            .mods = KeyMod{KeyModBits::eCTRL},
+            .action = EngineQuitAction{},
+        }}
     };
 
 
@@ -49,8 +62,6 @@ struct Engine{
     bool m_shouldExit{false};
 };
 
-// SECTION: Free functions which act on one or more parts of the engine.
-auto post_process_actions(std::vector<Action>& out_actions) -> void;
 
 auto derive_actions_from_input(
     std::vector<Action>& out_actions,

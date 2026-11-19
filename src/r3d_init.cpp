@@ -42,12 +42,15 @@ Renderer3D::Renderer3D(SDL_Window* window, glm::vec2 window_extent, f32 pixel_de
     )
     ,m_pixelDensity(pixel_density)
 {
-    LOG_DBG("Initializing {} ", stable_type_name<THIS_TYPE>());
+    LOG_THIS_CTOR();
     try{
         init_vulkan();
     } catch(vk::SystemError const& e){
         LOG_FATAL("Failed to initialize vulkan, threw: {}", e.what());
     }
+}
+Renderer3D::~Renderer3D(){
+    LOG_THIS_DTOR();
 }
 
 

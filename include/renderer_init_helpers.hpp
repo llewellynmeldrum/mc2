@@ -3,6 +3,7 @@
 	#error "This header is intended for c++ only."
 #endif // __cplusplus
 #include <algorithm>
+#include <string_view>
 #include <vulkan/vulkan.hpp>
 #include <vulkan/vulkan_raii.hpp>
 #include "renderer_types.hpp"

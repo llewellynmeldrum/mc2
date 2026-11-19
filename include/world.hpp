@@ -8,5 +8,5 @@
 
 struct World{
     World();
-    ~World() = default;
+    ~World();
 };

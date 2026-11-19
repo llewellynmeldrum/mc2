@@ -56,6 +56,7 @@ struct RenderContext{
 struct Renderer3D {
   public:
     Renderer3D(SDL_Window* window, glm::vec2 window_extent, f32 pixel_density);
+    ~Renderer3D();
     
     static constexpr auto                k_shader_spirv_path = "shaders/bin/main_shaders.spv"sv;
     static constexpr u32                 k_syncFrameCount = 2;

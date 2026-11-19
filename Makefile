@@ -21,7 +21,7 @@ ausan_ENV := $(asan_ENV) UBSAN_OPTIONS=color=always:print_stacktrace=1:halt_on_e
 
 build-%:
 	@cmake --preset $* $(TOGGLES) > /dev/null
-	@cmake --build build/$* $(RELPATH)
+	@cmake --build build/$* -j 6 $(RELPATH)
 
 run-%: build-%
 ifeq ($(B),1)

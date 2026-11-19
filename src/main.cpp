@@ -1,5 +1,6 @@
 #include <cxxopts.hpp>
 #include <cpptrace/formatting.hpp>
+#include <print>
 
 #include "engine.hpp"
 #include "globals.hpp"
@@ -9,6 +10,7 @@
 #include "debug.hpp"
 
 auto read_cli_args(int argc, char** argv) -> cxxopts::ParseResult;
+
 auto main(int argc, char** argv) -> int{
     timer::set_program_epoch();
     auto options = read_cli_args(argc,argv);
@@ -16,6 +18,8 @@ auto main(int argc, char** argv) -> int{
     global::timer               = options["timer"].as<bool>();
     global::line_no             = options["line-no"].as<bool>();
     bool stacktrace_snippets    = options["stacktrace-snippets"].as<bool>();
+
+
     dbg::init_trace_handlers(stacktrace_snippets);
 
     {

@@ -19,7 +19,12 @@
       }
     },
     { "name": "dev",   "inherits": "base", "cacheVariables": { 
+        "CMAKE_CXX_FLAGS_DEBUG": "-g1",
+		"_O0": "ON"
+    }},
+    { "name": "debug",   "inherits": "base", "cacheVariables": { 
         "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS_DEBUG": "-g",
 		"_O0": "ON"
     }},
 

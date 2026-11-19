@@ -21,8 +21,7 @@ auto euclid_mod(T a, T b){
 // delete is so easy to miss, and I often read it as 'default'. This helps distinguish them
 #define DELETE delete
 
-// Controversial. I dont really use this much
-#define st_cast static_cast
+// Im lazy
 #define cast static_cast
 
 // I dont like how messy these are, so for classes with really simple semantics,

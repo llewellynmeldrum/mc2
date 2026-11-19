@@ -17,6 +17,21 @@ auto is_mouse_button(T const& e) ->bool{
         static_assert(false,"Unknown event type for is_mouse_button.");
     }
 }
+// template<typename T>
+// auto is_modkey_button(T const& e) ->bool{
+//     if constexpr(same_as_any_nocvref<T,ButtonPressEvent,ButtonReleaseEvent>){
+//         return 
+//             e.code == KeyCode::LGUI 
+//             || e.code == KeyCode::RGUI
+//             || e.code == KeyCode::LALT
+//             || e.code == KeyCode::RALT
+//             || e.code == KeyCode::LSHIFT
+//             || e.code == KeyCode::RSHIFT
+//         ;
+//     }else{
+//         static_assert(false,"Unknown event type for is_mouse_button.");
+//     }
+// }
 
 using Event = std::variant<
     PlatformQuitEvent,

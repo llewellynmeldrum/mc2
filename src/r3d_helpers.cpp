@@ -50,7 +50,7 @@ const -> u32{
 vk::Extent2D Renderer3D::get_framebuffer_size() const noexcept{
     int w{},h{};
     SDL_GetWindowSizeInPixels(m_rendContext.window, &w,&h);
-    return vk::Extent2D{st_cast<u32>(w),st_cast<u32>(h)};
+    return vk::Extent2D{cast<u32>(w),cast<u32>(h)};
 }
 auto Renderer3D::toggle_wireframe()
 -> void{
@@ -73,12 +73,12 @@ auto Renderer3D::get_scissor() const
 -> vk::Rect2D{
     return {
         {
-            st_cast<i32>(m_rendContext.viewportOffset.x),
-            st_cast<i32>(m_rendContext.viewportOffset.y)
+            cast<i32>(m_rendContext.viewportOffset.x),
+            cast<i32>(m_rendContext.viewportOffset.y)
         },
         {
-            st_cast<u32>(m_rendContext.windowPixelExtent.x),
-            st_cast<u32>(m_rendContext.windowPixelExtent.y)
+            cast<u32>(m_rendContext.windowPixelExtent.x),
+            cast<u32>(m_rendContext.windowPixelExtent.y)
         },
     };
 }

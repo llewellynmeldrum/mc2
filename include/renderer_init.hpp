@@ -204,7 +204,7 @@ make_vk_device_and_queue(
         );
     }else{
         LOG_INFO(
-            "Device created, PD selected: {}",
+            "Device created, PD selected: {:?}",
             get_physical_dev_name(ctx.m_vkPhysicalDevice)
         );
     }

@@ -2,8 +2,19 @@
 #include "input.hpp"
 #include "input_actions.hpp"
 #include "input_keycodes.hpp"
+struct PlatformQuitBind{
+    Action action;
+    auto operator()(InputState const& in)const -> std::optional<Action>{
+        if (in.platform_quit_requested){
+            return action;
+        }else{
+            return {};
+        }
+    }
+};
 struct ToggleButtonBind{
     ButtonCode button;
+    KeyMod mods{KeyModBits::eNONE};
     Action action;
     auto operator()(InputState const& in)const -> std::optional<Action>{
         if (in.just_pressed(button)){
@@ -29,9 +40,8 @@ struct HoldButtonBind{
 struct MouseMoveBind{
     auto operator()(InputState const& in) const-> std::optional<Action>{
         if (in.mouse_moved()){
-            return Action{
-                .type = ActionType::LookAround,
-                .delta2 = in.mouse_delta,
+            return LookCameraAction{
+                .delta = in.mouse_delta,
             };
         } else{
             return {};
@@ -46,7 +56,7 @@ static_assert(is_bind_object<MouseMoveBind>);
 static_assert(!is_bind_object<int>);
 
 struct Binding{
-    using BindingType = std::variant<ToggleButtonBind, HoldButtonBind, MouseMoveBind>;
+    using BindingType = std::variant<PlatformQuitBind, ToggleButtonBind, HoldButtonBind, MouseMoveBind>;
     BindingType type;
     std::string name{}, desc{};
 };

@@ -3,7 +3,7 @@
 #include <glm/glm.hpp>
 
 #include "cppslop.hpp"
-#include "Engine_Events.hpp"
+#include "input_events.hpp"
 
 // NOTE:: Input pipeline:
 // Subsytem     Inputs                                 Outputs
@@ -106,5 +106,8 @@ auto update_input_states(
             },
         }, e);
     }
+    // HACK: This is not portable to other future backends, as it relies on the fact that 
+    // keymods is built by copy pasting the values of SDL's SDL_Keymod. 
+    input.keymods = KeyMod{SDL_GetModState()};
     return input;
 }

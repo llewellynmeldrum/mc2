@@ -2,23 +2,29 @@
 #include "glm_types.hpp"
 #include "libassert/assert.hpp"
 #include "auto_format.hpp"
-enum struct ActionType{
-    MoveCamera,
-    LookAround,
+// 'Actions' are associated with 'events' via a 'Binding'.
+// A binding maps an Event (and its data) to a Binding (and its data)
+struct MoveCameraAction{
+    glm::vec3 delta_world; // must be scaled by the thingamabob
+};
+struct LookCameraAction{
+    glm::vec2 delta;
+};
 
-    ZoomIn,
-    ZoomOut,
+// i.e optifine zoom button was pressed (or released)
+struct ZoomCameraAction{
+    bool zoom_in{true};
 };
-struct Action{
-    ActionType type;
-    glm::vec2 delta2{0,0};      // Only applicable for certain actions, i.e the look actions.
-    glm::vec3 delta3{0,0,0};    // Applicable for movement
-    auto get_delta3() const -> glm::vec3{
-        ASSERT(type == ActionType::MoveCamera);
-        return delta3;
-    }
-    auto get_delta2() const -> glm::vec2{
-        ASSERT(type == ActionType::LookAround);
-        return delta2;
-    }
+// i.e scrolling to change the zoom amount
+struct ModifyZoomCameraAction{
+    f32 delta; 
 };
+struct EngineQuitAction{
+};
+using Action = std::variant<
+    MoveCameraAction,
+    LookCameraAction,
+    ZoomCameraAction,
+    ModifyZoomCameraAction,
+    EngineQuitAction
+>;

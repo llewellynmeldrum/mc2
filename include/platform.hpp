@@ -15,6 +15,7 @@ struct Platform{
         glm::vec2 desiredLogicalSize,
         std::string_view window_name ="Test window"sv
     );
+    ~Platform();
 
     auto capture_cursor() -> void;
     auto uncapture_cursor() -> void;

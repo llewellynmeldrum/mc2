@@ -2,6 +2,8 @@
 
 #include "timer.hpp"
 struct Profiler{
+    Profiler();
+    ~Profiler();
     static constexpr auto k_target_dt_seconds = 0.016;
 
     // NOTE: dt is the difference in time between the previous frames beginning, and the current frames beginning.

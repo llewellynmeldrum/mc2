@@ -1,12 +1,15 @@
-#include "Gui.hpp"
-#include "logger.hpp"
-#include "vk_types.hpp"
 #include <imgui.h>
 #include <imgui_impl_sdl3.h>
 #include <imgui_impl_vulkan.h>
 
+#include "Gui.hpp"
+#include "logger.hpp"
+#include "stable_type_name.hpp"
+#include "vk_types.hpp"
+
 
 Gui::Gui(SDL_Window* window){
+    LOG_THIS_CTOR();
     using detail::debug::get_c_handle;
     auto log_failure = [](std::string msg){
         LOG_FATAL("Failed to initialize imgui : {}",msg);
@@ -22,7 +25,9 @@ Gui::Gui(SDL_Window* window){
     style.ScaleAllSizes(k_guiMainScale);
     style.FontScaleDpi = k_guiMainScale;
 }
+
 Gui::~Gui(){
+    LOG_THIS_DTOR();
     ImGui_ImplVulkan_Shutdown();
     ImGui_ImplSDL3_Shutdown();
     ImGui::DestroyContext();

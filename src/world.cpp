@@ -4,5 +4,8 @@
 #include "stable_type_name.hpp"
 
 World::World(){
-    LOG_DBG("Initializing {} ", stable_type_name<THIS_TYPE>());
+    LOG_THIS_CTOR();
+}
+World::~World(){
+    LOG_THIS_DTOR();
 }

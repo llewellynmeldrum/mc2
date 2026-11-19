@@ -16,10 +16,13 @@
 #include "enum_map.hpp"
 
 
+// Input state is derived from events, which are generated from polling SDL events.
 struct InputState{
 public:
     EnumMap<ButtonCode, bool> pressed{};
     EnumMap<ButtonCode, bool> pressed_previous{};
+    KeyMod keymods{};
+
     auto is_down(ButtonCode c) const -> bool{
         return pressed.at(c); 
     }
@@ -42,6 +45,9 @@ public:
     }
     auto scroll_wheel_moved()const  -> bool{
         return scroll_wheel_delta != glm::vec2{0,0};
+    }
+    auto has_keymods(KeyModBits bits) const -> bool{
+        return keymods.has(bits);
     }
     bool platform_quit_requested{};
     glm::vec2 mouse_pos{};

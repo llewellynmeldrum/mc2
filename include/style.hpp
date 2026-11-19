@@ -269,4 +269,4 @@ template<typename T>
 std::string with_bg(auto style, const T& val){
     return std::format("{0}{1}{2}",style,val,style::reset_bg());
 }
-}
+} // NAMESPACE: STYLE

@@ -4,7 +4,7 @@ Platform::Platform(
     glm::vec2 desiredLogicalSize,
     std::string_view window_name
 ) {
-    LOG_DBG("Initializing {} ", stable_type_name<THIS_TYPE>());
+    LOG_THIS_CTOR();
     static constexpr auto init_flags = SDL_INIT_VIDEO | SDL_INIT_EVENTS;
     static constexpr auto window_flags = SDL_WINDOW_VULKAN | SDL_WINDOW_RESIZABLE; 
     // Consider using 
@@ -30,6 +30,9 @@ Platform::Platform(
         LOG_FATAL("Failed to get window pixel density: {}", SDL_GetError());
     }
     update_window_size(get_window_extent());
+}
+Platform::~Platform(){
+    LOG_THIS_DTOR();
 }
 
 auto Platform::toggle_relative_cursor_mode() -> void{

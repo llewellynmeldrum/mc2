@@ -50,6 +50,7 @@ target_compile_options(${APP_NAME} PRIVATE
     -fdiagnostics-color=always
     -ffile-prefix-map=${CMAKE_SOURCE_DIR}=. # gives stack traces a relative path to cwd
     -freflection
+    -Winvalid-pch
 )
 
 OPTION(_TIME_REPORT "Print -ftime-report for each TU" OFF)
@@ -215,6 +216,16 @@ set(TOML11_PRECOMPILE ON)
 FetchContent_MakeAvailable(toml11 )
 target_link_libraries(${APP_NAME} PRIVATE toml11::toml11)
 
+
+# cxxopts [HEADER ONLY]
+# ---------------------------------------
+target_include_directories("${APP_NAME}" PRIVATE 
+    "${CMAKE_CURRENT_SOURCE_DIR}/external/cxxopts/include"
+)
+
+# --------------------------------------
+# PRECOMPILED HEADER SUPPORT 
+# --------------------------------------
 target_precompile_headers(${APP_NAME} PRIVATE
    "${CMAKE_CURRENT_SOURCE_DIR}/include/pch.hpp" 
 )

@@ -4,6 +4,9 @@
 #include "input.hpp"
 #include "input_actions.hpp"
 
+// SECTION: Free functions which act on one or more parts of the engine.
+auto post_process_actions(std::vector<Action>& out_actions) -> void;
+
 auto derive_actions_from_input(
     std::vector<Action>& out_actions,
     InputState const& input,
@@ -25,15 +28,17 @@ auto derive_actions_from_input(
             // no 
         }
     }
+    post_process_actions(out_actions);  // filter actions
     return out_actions;
 }
+
 auto post_process_actions(std::vector<Action>& out_actions) -> void{
     auto new_actions = std::vector<Action>{};
     auto movement_delta_sum = glm::vec3{};
-    LOG_DBG("Actions before post processing: {}",out_actions.size());
+//    LOG_DBG("Actions before post processing: {}",out_actions.size());
     for (auto& action: out_actions){
-        if (action.type == ActionType::MoveCamera){
-            movement_delta_sum += action.delta3; 
+        if (auto* move_act = std::get_if<MoveCameraAction>(&action)){
+            movement_delta_sum += move_act->delta_world;
         }else{
             new_actions.push_back(action);
         }
@@ -43,11 +48,10 @@ auto post_process_actions(std::vector<Action>& out_actions) -> void{
     // This prevents diagonal movement from being faster than mono-direction movement,
     // and also avoids sending actions when two opposing keys are pressed (the sum_delta will be zero)
         new_actions.emplace_back(
-            ActionType::MoveCamera,
-            glm::vec2{0,0},
+            std::in_place_type<MoveCameraAction>,
             glm::normalize(movement_delta_sum)
         );
     }
     out_actions = std::move(new_actions);
-    LOG_DBG("Actions AFTER post processing: {}",out_actions.size());
+//    LOG_DBG("Actions AFTER post processing: {}",out_actions.size());
 }

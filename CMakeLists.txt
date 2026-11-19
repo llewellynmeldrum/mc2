@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 4.3.3)
 
-set(APP_NAME vmc)
+set(APP_NAME mc2)
 project(${APP_NAME} LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 26)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

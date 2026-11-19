@@ -31,7 +31,7 @@ auto main(int argc, char** argv) -> int{
 }
 
 auto read_cli_args(int argc, char** argv) -> cxxopts::ParseResult{
-    auto option_spec = cxxopts::Options{"vmc", "vulkan rewrite of mc."};
+    auto option_spec = cxxopts::Options{"mc2", "vulkan rewrite of mc."};
     option_spec.add_options()
         ("d,debug",     "Enable debug mode.")
         ("t,timer",     "Enable timers for log messages.")

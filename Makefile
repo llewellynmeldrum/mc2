@@ -1,7 +1,7 @@
 # ===================================================================
 # CMake Wrapper Makefile
 # ===================================================================
-APP         := vmc
+APP         := mc2
 SHELL       := /bin/bash
 .SHELLFLAGS := -o pipefail -c
 export CLICOLOR_FORCE := 1

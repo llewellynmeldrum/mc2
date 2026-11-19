@@ -1,7 +1,7 @@
 
 #include <print>
 #include "heightmap.hpp"
-#include "logger.hpp"
+#include "util/logger.hpp"
 #include "minmax.hpp"
 
 #include <FastNoiseLite.h>

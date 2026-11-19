@@ -6,7 +6,7 @@
 #include "meta_shorthand.hpp"
 #if CPP26
 #include "primitive_types.hpp"
-#include "cppslop.hpp"
+#include "util/cppslop.hpp"
 #include "stable_type_name.hpp"
 using namespace std::string_view_literals;
 #define COMPTIME_STR(s) (std::define_static_string(s))

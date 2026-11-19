@@ -2,11 +2,11 @@
 #include <cpptrace/formatting.hpp>
 #include <print>
 
-#include "engine.hpp"
+#include "engine/engine.hpp"
 #include "globals.hpp"
 #include "renderer2d.hpp"
 #include "font_atlas.hpp"
-#include "logger.hpp"
+#include "util/logger.hpp"
 #include "debug.hpp"
 
 auto read_cli_args(int argc, char** argv) -> cxxopts::ParseResult;

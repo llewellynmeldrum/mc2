@@ -5,18 +5,18 @@
 #include <span>
 
 #include "glm_types.hpp"
-#include "engine.hpp"
-#include "input_events.hpp"
-#include "Engine_Gui.hpp"
+#include "engine/engine.hpp"
+#include "engine/engine_gui.hpp"
+#include "input/input_events.hpp"
 
 #include "color_utils.hpp"
-#include "input_actions.hpp"
-#include "timer.hpp"
+#include "input/input_actions.hpp"
+#include "util/timer.hpp"
 #include "auto_format.hpp"
 #include "stable_type_name.hpp"
 
 #include "format_specs.hpp"
-#include "input_binds.hpp"
+#include "input/input_binds.hpp"
 
 void apply_actions_to_engine(std::span<Action const> actions, Engine& engine, f64 dt_s){
     for (auto const& action: actions){

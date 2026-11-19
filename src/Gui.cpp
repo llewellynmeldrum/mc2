@@ -2,8 +2,8 @@
 #include <imgui_impl_sdl3.h>
 #include <imgui_impl_vulkan.h>
 
-#include "Gui.hpp"
-#include "logger.hpp"
+#include "ui/ui.hpp"
+#include "util/logger.hpp"
 #include "stable_type_name.hpp"
 #include "vk_types.hpp"
 

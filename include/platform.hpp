@@ -6,8 +6,8 @@
 #include "transformations.hpp"
 #include "primitive_types.hpp"
 #include "glm_types.hpp"
-#include "logger.hpp"
-#include "sdl3_types.hpp"
+#include "util/logger.hpp"
+#include "platform/sdl3_types.hpp"
 
 struct Platform{
     // Creates window 

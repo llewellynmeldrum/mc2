@@ -4,8 +4,8 @@
 #include "SDL3/SDL_oldnames.h"
 //#include "r3d.hpp"
 #include "format_specs.hpp"
-#include "input.hpp"
-#include "input_keycodes.hpp"
+#include "input/input.hpp"
+#include "input/input_keycodes.hpp"
 
 
 //void Input::handle_inputs(){

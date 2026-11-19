@@ -1,7 +1,7 @@
 #pragma once 
 #include <glm/vec2.hpp>
-#include "input.hpp"
-#include "input_keycodes.hpp"
+#include "input/input.hpp"
+#include "input/input_keycodes.hpp"
 #include "platform.hpp"
 struct PlatformQuitEvent    {};
 struct MouseMoveEvent       { glm::vec2 pos, delta;};

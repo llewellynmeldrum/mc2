@@ -1,7 +1,7 @@
 #pragma once 
-#include "input.hpp"
-#include "input_actions.hpp"
-#include "input_keycodes.hpp"
+#include "input/input.hpp"
+#include "input/input_actions.hpp"
+#include "input/input_keycodes.hpp"
 struct PlatformQuitBind{
     Action action;
     auto operator()(InputState const& in)const -> std::optional<Action>{

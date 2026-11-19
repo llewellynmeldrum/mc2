@@ -9,7 +9,7 @@
 #include <stb_truetype.hpp>
 
 #include "font_atlas.hpp"
-#include "cppslop.hpp"
+#include "util/cppslop.hpp"
 #include "primitive_types.hpp"
 #include "byte_span.hpp"
 

@@ -1,6 +1,6 @@
 #include "vk_image_data.hpp"
 #include "stb_image.hpp"
-#include "logger.hpp"
+#include "util/logger.hpp"
 #include "vulkan/vulkan_format_traits.hpp"
 
 u32 ImageData::image_size_bytes() const{

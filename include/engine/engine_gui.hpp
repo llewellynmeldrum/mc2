@@ -1,6 +1,6 @@
 #pragma once
-#include "Gui.hpp"
-#include "cppslop.hpp"
+#include "ui/ui.hpp"
+#include "util/cppslop.hpp"
 #include "platform.hpp"
 #include "r3d.hpp"
 namespace vk::raii{

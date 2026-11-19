@@ -7,14 +7,14 @@
 #include "heightmap.hpp"
 #include "push_constants_traits.hpp"
 #include "push_constants.hpp"
-#include "sdl3_types.hpp"
+#include "platform/sdl3_types.hpp"
 #include "glm_types.hpp"
 
 #include "stable_type_name.hpp"
 #include "stb_image.hpp"
 #include "format_specs.hpp"
 #include "file_io.hpp"
-#include "timer.hpp"
+#include "util/timer.hpp"
 #include "vertex.hpp"
 #include "r3d.hpp"
 #include "vk_image_data.hpp"
@@ -32,7 +32,7 @@
 #include "renderer_init.hpp"
 #include "renderer_types.hpp"
 
-#include "cppslop.hpp"
+#include "util/cppslop.hpp"
 
 Renderer3D::Renderer3D(SDL_Window* window, glm::vec2 window_extent, f32 pixel_density)
     : m_rendContext(

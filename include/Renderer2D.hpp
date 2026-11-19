@@ -10,7 +10,7 @@
 #include <tuple>
 
 #include "shared/cpp_slang_shared.hpp"
-#include "cppslop.hpp"
+#include "util/cppslop.hpp"
 #include "cpu_mesh.hpp"
 #include "font_atlas.hpp"
 #include "gpu_mesh.hpp"
@@ -21,7 +21,7 @@
 #include "renderer2d_draw_state.hpp"
 #include "vertex_raw_data.hpp"
 #include "quad_vertices.hpp"
-#include "cppslop.hpp"
+#include "util/cppslop.hpp"
 
 struct Renderer2D{
 public: // SECTION: SPECIAL MEMBER FNS ================================================================================

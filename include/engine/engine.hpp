@@ -1,5 +1,5 @@
 #pragma once
-#include "input_keycodes.hpp"
+#include "input/input_keycodes.hpp"
 #ifndef __cplusplus
 	#error "This header is intended for c++ only."
 #endif // __cplusplus
@@ -7,17 +7,17 @@
 
 #include "platform.hpp"
 #include "r3d.hpp"
-#include "input.hpp"
+#include "input/input.hpp"
 #include "world.hpp"
 #include "camera.hpp"
 #include "profiler.hpp"
-#include "input_actions.hpp"
-#include "input_binds.hpp"
+#include "input/input_actions.hpp"
+#include "input/input_binds.hpp"
 
 #include "transformations.hpp"
 #include "mesh_id.hpp"
-#include "Gui.hpp"
-#include "input_binds.hpp"
+#include "ui/ui.hpp"
+#include "input/input_binds.hpp"
 
 struct Engine{
  public:

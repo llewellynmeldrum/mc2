@@ -1,8 +1,8 @@
 
 // NOTE: We pass in the actions vector to reuse its allocation
-#include "input_binds.hpp"
-#include "input.hpp"
-#include "input_actions.hpp"
+#include "input/input_binds.hpp"
+#include "input/input.hpp"
+#include "input/input_actions.hpp"
 
 // SECTION: Free functions which act on one or more parts of the engine.
 auto post_process_actions(std::vector<Action>& out_actions) -> void;

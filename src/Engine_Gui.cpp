@@ -1,7 +1,7 @@
 #include <imgui_impl_vulkan.h>
-#include "Gui.hpp"
+#include "ui/ui.hpp"
 #include "platform.hpp"
-#include "Engine_Gui.hpp"
+#include "engine/engine_gui.hpp"
 #include "r3d.hpp"
 
 auto init_gui(Gui& ui, Platform& platform, Renderer3D& r3d) -> void{

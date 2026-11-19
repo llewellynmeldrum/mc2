@@ -18,7 +18,7 @@
 #include <vk_mem_alloc.h>
 
 #include "concept_helpers.hpp"
-#include "logger.hpp"
+#include "util/logger.hpp"
 #include "renderer_concepts.hpp"
 
 namespace detail::debug{

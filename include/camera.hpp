@@ -6,7 +6,7 @@
 #include "glm/ext/matrix_transform.hpp"
 #include "glm/ext/vector_float3.hpp"
 #include "glm/geometric.hpp"
-#include "logger.hpp"
+#include "util/logger.hpp"
 #include "primitive_types.hpp"
 #include "glm/trigonometric.hpp"
 struct Camera{

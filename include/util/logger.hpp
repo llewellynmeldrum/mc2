@@ -15,8 +15,8 @@
 
 #include "color_utils.hpp"
 #include "style.hpp"
-#include "cppslop.hpp"
-#include "timer.hpp"
+#include "util/cppslop.hpp"
+#include "util/timer.hpp"
 #include "globals.hpp"
 #include "source_loc.hpp"
 

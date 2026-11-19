@@ -9,7 +9,7 @@
 #include "primitive_types.hpp"
 #include "zstring_view.hpp"
 #include "concept_helpers.hpp"
-#include "cppslop.hpp"
+#include "util/cppslop.hpp"
 
 
 #define STABLE_NAME_LIST                    \

@@ -7,8 +7,8 @@
 #include <SDL3/SDL_video.h>
 #include <glm/vec2.hpp>
 
-#include "input_keycodes.hpp"
-#include "logger.hpp"
+#include "input/input_keycodes.hpp"
+#include "util/logger.hpp"
 #include "concept_helpers.hpp"
 #include "enum_map.hpp"
 #include "transformations.hpp"
@@ -16,7 +16,9 @@
 #include "enum_map.hpp"
 
 
-// Input state is derived from events, which are generated from polling SDL events.
+// Input pipeline:
+// SDL_PollEvents -> InputEvent -> InputState -> Binding(InputState)-> InputAction
+// Input state is derived from events, which are generated from polling platform (SDL) events.
 struct InputState{
 public:
     EnumMap<ButtonCode, bool> pressed{};

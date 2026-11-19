@@ -8,7 +8,7 @@
 #include <stb_truetype.hpp>
 
 #include "Texture2D.hpp"
-#include "cppslop.hpp"
+#include "util/cppslop.hpp"
 #include "primitive_types.hpp"
 #include "file_io.hpp"
 #include "vertex.hpp"

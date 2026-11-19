@@ -1,6 +1,6 @@
 #include "world.hpp"
-#include "cppslop.hpp"
-#include "logger.hpp"
+#include "util/cppslop.hpp"
+#include "util/logger.hpp"
 #include "stable_type_name.hpp"
 
 World::World(){

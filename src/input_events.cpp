@@ -2,8 +2,8 @@
 
 #include <glm/glm.hpp>
 
-#include "cppslop.hpp"
-#include "input_events.hpp"
+#include "util/cppslop.hpp"
+#include "input/input_events.hpp"
 
 // NOTE:: Input pipeline:
 // Subsytem     Inputs                                 Outputs
